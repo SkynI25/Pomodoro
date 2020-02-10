@@ -1,0 +1,106 @@
+p {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 0px;
+}
+
+.infoSect {
+    height: 400px;
+    background: rgb(115, 115, 115);
+}
+
+.upsideInfo {
+    height: 80%;
+}
+
+.concentInfo {
+    height: 20%;
+}
+
+.buttonSect {
+    height: 600px;
+    background: #f3f3f3;
+}
+
+.buttonLocation {
+    padding : 10px;
+    text-align: center;
+}
+
+.menu-img {
+    width : 4%;
+    height : 19%;
+    box-sizing: content-box;
+    display : inline-block;
+}
+
+.dateInfo {
+    width : 100%;
+    box-sizing: content-box;
+    display : inline-block;
+    font-size: 20px;
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.concentAvgInfo {
+    box-sizing: content-box;
+    font-size: 30px;
+    display: inline-block;
+    color: #f3f3f3;
+    width: 50%;
+    text-align: center;
+}
+
+.concentTimeInfo {
+    text-align: center;
+    box-sizing: content-box;
+    font-size: 30px;
+    display: inline-block;
+    color: #f3f3f3;
+    width: 49%;
+}
+
+/* button */
+button {
+    background: #1AAB8A;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+}
+
+button:hover {
+    background: #fff;
+    color: #1AAB8A;
+}
+
+button:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+}
+
+button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+button:hover:before,
+button:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}

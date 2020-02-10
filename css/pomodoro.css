@@ -1,0 +1,107 @@
+p {
+    text-align: center;
+    font-size: 60px;
+    margin: 2%;
+}
+#numOfset{
+    text-align: center;
+    font-size: 40px;
+    margin: 1%;
+}
+#setPomoNum{
+    text-align: center;
+    font-size: 60px;
+    margin: 1%;
+}
+.home-img {
+    width: 60px;
+    height : 60px;
+}
+body {
+    height : 1000px;
+    background: rgb(0, 204, 153);
+    background: linear-gradient(180deg, rgb(0, 204, 153), rgb(204, 153, 255)); /* Standard syntax (must be last) */
+}
+.nameOftitle {
+    margin-top : 5%;
+}
+.totalTime {
+    box-sizing: content-box;
+    text-align: center;
+    display : inline-block;
+    font-size: 30px;
+    width : 50%;
+}
+.avgConcent {
+    box-sizing: content-box;
+    text-align: center;
+    display : inline-block;
+    font-size: 30px;
+    width : 49%;
+}
+.displayNum {
+    margin : 1%;
+}
+.numOftotalTime {
+    box-sizing: content-box;
+    text-align: center;
+    display : inline-block;
+    font-size: 30px;
+    width : 50%;
+}
+.numOfavgConcent {
+    box-sizing: content-box;
+    text-align: center;
+    display : inline-block;
+    font-size: 30px;
+    width : 49%;
+}
+
+/* button */
+button {
+    background: #1AAB8A;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+}
+
+button:hover {
+    background: #fff;
+    color: #1AAB8A;
+}
+
+button:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+}
+
+button:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+button:hover:before,
+button:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
+
+.buttonLocation {
+    margin : 2%;
+    text-align: center;
+}

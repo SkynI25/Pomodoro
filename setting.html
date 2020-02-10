@@ -1,0 +1,45 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/setting.css" />
+</head>
+
+<body>
+    <div style="box-shadow:-17px 21px 5px -19px #666">
+        <img src="./img/back.svg" class="home-img" onclick="window.location.href='main.html'">
+        <span style="position:relative; top:-12px; left:1%; font-weight: bold">Pomodoro</span>
+    </div>
+
+    <div style="font-size:12px;margin-top:2%;color:#8a2be2;">* Please select a mode to process pomodoro</div>
+
+    <div style="margin-top:2%;"><input type="radio" name="mode" value="1" checked="checked">Set mode</div>
+    <div style="margin-top:1%;"><input type="radio" name="mode" value="2">Only Pomo mode</div>
+
+    <div class="inputWorkTime">
+            <h4>
+                Pomo Time
+            </h4>
+        <input type="text" class="pomoTime" /> minute
+    </div>
+    <div class="inputBreakTime">
+        <h4>
+            Break Time
+        </h4>
+        <input type="text" class="breakTime" /> minute
+    </div>
+    <div class="inputBigBreakTime">
+        <h4>
+            Big Break Time
+        </h4>
+        <input type="text" class="bigbreakTime" /> minute
+    </div>
+
+    <input type="button" value="Set time" class="setTimeNum" id="setTimeValue" onclick="setChildValue()" />
+
+    <script src="./js/setting.js"></script>
+
+</body>
+
+</html>
