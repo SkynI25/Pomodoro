@@ -130,3 +130,5 @@ function isValid(value) {
     }
     return false;
 }
+
+document.querySelector('#startbtn').addEventListener('click', start_timer);

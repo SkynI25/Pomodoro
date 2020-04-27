@@ -1,23 +1,16 @@
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1;
-var yyyy = today.getFullYear();
-var week = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
-var day = week[today.getDay()];
-if(dd < 10) {
-    dd = '0' + dd;
-}
-if(mm < 10) {
-    mm = '0' + mm;
-}
-today = yyyy + '. ' + mm + '. ' + dd + '. ' + '(' + day + ')';
-document.getElementById("date").innerHTML = today;
+const today = new Date();
+const day = today.getDate() < 10 ? `0${today.getDate()+1}` : today.getDate()+1;
+const month = today.getMonth() < 10 ? `0${today.getMonth()+1}` : today.getMonth()+1;
+const year = today.getFullYear();
+const week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const dayOfWeek = week[today.getDay()];
+document.querySelector('#date').innerHTML = `${year}. ${month}. ${day}. (${dayOfWeek})`;
 
-function toPomopage() {
+function clickHandler() {
     if(sessionStorage.getItem('timeSetting') !== null) {
         window.location.href='pomodoro.html';
-        return;
     }
     alert("Please set the times in the Setting before you start Pomodoro.")
-    return;
 }
+
+document.querySelector('.buttonLocation > button').addEventListener('click', clickHandler);

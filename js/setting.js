@@ -1,11 +1,11 @@
-﻿function setChildValue() {
-    let val1 = document.getElementsByClassName('pomoTime')[0].value;
-    let val2 = document.getElementsByClassName('breakTime')[0].value;
-    let val3 = document.getElementsByClassName('bigbreakTime')[0].value;
+﻿const val1N = "Pomo Time";
+const val2N = "Break Time";
+const val3N = "Big Break Time";
 
-    const val1N = "Pomo Time"
-    const val2N = "Break Time"
-    const val3N = "Big Break Time"
+function setChildValue() {
+    const val1 = document.querySelectorAll('.pomoTime')[0].value;
+    const val2 = document.querySelectorAll('.breakTime')[0].value;
+    const val3 = document.querySelectorAll('.bigbreakTime')[0].value;
 
     let listVal = [];
     let listValN = [];
@@ -50,3 +50,5 @@ function validationDetector(inputId, data2) {
     });
     return result;
 }
+
+document.querySelector('#setTimeValue').addEventListener('click', setChildValue);
