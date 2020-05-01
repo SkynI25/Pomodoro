@@ -65,12 +65,15 @@ p {
 .input-time span {
     color: #666;
 }
-.pomoTime {
+.pomoTime, .breakTime, .bigbreakTime {
     width: 50px;
 }
 .explainText {
     font-size: 12px;
     color: #666;
+}
+.wrong-input {
+    border: 2px solid red;
 }
 .nameOftitle {
     margin-top : 5%;
