@@ -3,11 +3,14 @@ let timerHour = 0;
 let currSetNum = 1;
 let timerMinute = 0;
 let nTimes4Compute = 0;
+
+const SET_NUM = 'currSetNum';
+
 const tids = [];
 const startBtn = document.querySelector('#startbtn');
 const numOfSet = document.querySelector('#numOfset');
 const setPomoNum = document.querySelector('#setPomoNum');
-const sessionValue = sessionStorage.getItem('timeSetting') === null ? [] : sessionStorage.getItem('timeSetting').split(',');
+const sessionValue = localStorage.getItem('timeSetting') === null ? [] : localStorage.getItem('timeSetting').split(',');
 
 function pad(n, width, z) {
     z = z || '0';
@@ -25,7 +28,7 @@ let seconds4Display = Math.floor((distance4Display % (1000 * 60)) / 1000);
 function stateChanged(evt) {
     setTimeout(() => {
         evt.target.textContent = "Start";
-        currSetNum = sessionStorage.getItem('currSetNum');
+        currSetNum = localStorage.getItem(SET_NUM);
         numOfSet.textContent = `${currSetNum} POMO`;
         settingPomoTime();
         addStartHandler();
@@ -46,7 +49,6 @@ function startTimer(evt) {
         for(let i = minutes; i >= 0; i--) {
             tids.push(setTimeout(function() {
                 const computedNum = i >= 60 ? i - (nTimes4Compute) * 60 : i;
-                console.log(minutes, computedNum);
                 if(computedNum !== 60) {
                     setPomoNum.textContent = `${pad(timerHour, 2)}:${pad(timerMinute, 2)}:${pad(computedNum, 2)}`;
                 }
@@ -66,7 +68,7 @@ function startTimer(evt) {
                 minutes = i;
                 if(minutes === 0) {
                     currSetNum++;
-                    sessionStorage.setItem('currSetNum', currSetNum);
+                    localStorage.setItem(SET_NUM, currSetNum);
                     res();
                 }
             }, (minutes - i) * 1000));
@@ -101,7 +103,7 @@ function init() {
     } else {
         numOfSet.innerHTML = "Before you start, please set the times in the setting page first."
     }
-    sessionStorage.setItem('currSetNum', currSetNum);
+    localStorage.setItem(SET_NUM, currSetNum);
 }
 
 init();

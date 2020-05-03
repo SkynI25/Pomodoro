@@ -10,7 +10,7 @@ const dayOfWeek = week[today.getDay()];
 todayText.innerHTML = `${year}. ${month}. ${day}. (${dayOfWeek})`;
 
 function clickHandler() {
-    if(sessionStorage.getItem('timeSetting') !== null) {
+    if(localStorage.getItem('timeSetting') !== null) {
         window.location.href='pomodoro.html';
     } else {
         alert("Please set the times in the Setting before you start Pomodoro.")
