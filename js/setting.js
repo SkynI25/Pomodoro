@@ -1,6 +1,7 @@
 ﻿const val1N = "Pomo Time";
 const val2N = "Break Time";
 const val3N = "Big Break Time";
+const TIME = "timeSetting";
 const wrongInput = `wrong-input`;
 const pomoTime = document.querySelector('.pomoTime');
 // const breakTime = document.querySelector('.breakTime');
@@ -34,7 +35,7 @@ function setChildValue() {
 
     if(valiCheck(val1, timesArr[0].range)) { // && valiCheck(val2, timesArr[1].range) && valiCheck(val3, timesArr[2].range)) {
         if(confirm("Save the times?")) {
-            sessionStorage.setItem("timeSetting", listVal);
+            localStorage.setItem(TIME, listVal);
             window.location.href='main.html';
         }
     } else {
@@ -50,8 +51,8 @@ function valiCheck(data,range) {
 }
 
 function initInput() {
-    if(sessionStorage.getItem('timeSetting')) {
-        const values = sessionStorage.getItem('timeSetting').split(",");
+    if(localStorage.getItem('timeSetting')) {
+        const values = localStorage.getItem('timeSetting').split(",");
         pomoTime.value = values[0];
         // breakTime.value = values[1];
         // bigbreakTime.value = values[2];
