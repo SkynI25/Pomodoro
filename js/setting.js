@@ -36,7 +36,7 @@ function setChildValue() {
     if(valiCheck(val1, timesArr[0].range)) { // && valiCheck(val2, timesArr[1].range) && valiCheck(val3, timesArr[2].range)) {
         if(confirm("Save the times?")) {
             localStorage.setItem(TIME, listVal);
-            window.location.href='main.html';
+            window.location.href='index.html';
         }
     } else {
         pointWrongInput(timesArr[0]);
