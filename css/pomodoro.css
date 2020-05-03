@@ -1,107 +1,79 @@
-p {
-    text-align: center;
-    font-size: 60px;
-    margin: 2%;
-}
-#numOfset{
-    text-align: center;
-    font-size: 40px;
-    margin: 1%;
-}
-#setPomoNum{
-    text-align: center;
-    font-size: 60px;
-    margin: 1%;
-}
-.home-img {
-    width: 60px;
-    height : 60px;
+html {
+    height: 100%;
 }
 body {
-    height : 1000px;
-    background: rgb(0, 204, 153);
+    margin: 0;
     background: linear-gradient(180deg, rgb(0, 204, 153), rgb(204, 153, 255)); /* Standard syntax (must be last) */
 }
-.nameOftitle {
-    margin-top : 5%;
+p {
+    margin: 10px;
+}
+.home-img {
+    cursor: pointer;
+    width: 60px;
+    height : 60px;
+    margin-top: 10px;
+}
+#numOfset{
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+.buttonLocation {
+    margin : 2%;
+    text-align: center;
+}
+#startbtn {
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    background: none;
+    border-radius: 5%;
+    border: 1px solid #fff;
+}
+#setPomoNum{
+    color: #fff;
+    text-align: center;
+    font-size: 60px;
+    margin:0;
+}
+.time-table {
+    color: #fff;
+    margin-top : 350px;
 }
 .totalTime {
-    box-sizing: content-box;
+    float: left;
     text-align: center;
-    display : inline-block;
     font-size: 30px;
     width : 50%;
 }
 .avgConcent {
-    box-sizing: content-box;
+    float: left;
     text-align: center;
-    display : inline-block;
     font-size: 30px;
-    width : 49%;
-}
-.displayNum {
-    margin : 1%;
+    width : 50%;
 }
 .numOftotalTime {
-    box-sizing: content-box;
+    float: left;
     text-align: center;
-    display : inline-block;
     font-size: 30px;
     width : 50%;
 }
 .numOfavgConcent {
-    box-sizing: content-box;
+    float: left;
     text-align: center;
-    display : inline-block;
     font-size: 30px;
-    width : 49%;
+    width : 50%;
 }
-
-/* button */
-button {
-    background: #1AAB8A;
+.pomoSect {
     color: #fff;
-    border: none;
-    position: relative;
-    height: 60px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
 }
-
-button:hover {
-    background: #fff;
-    color: #1AAB8A;
+.breakSect {
+    color: #fff;
 }
-
-button:before,
-button:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 2px;
-    width: 0;
-    background: #1AAB8A;
-    transition: 400ms ease all;
-}
-
-button:after {
-    right: inherit;
-    top: inherit;
-    left: 0;
-    bottom: 0;
-}
-
-button:hover:before,
-button:hover:after {
-    width: 100%;
-    transition: 800ms ease all;
-}
-
-.buttonLocation {
-    margin : 2%;
-    text-align: center;
+.time-info {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
