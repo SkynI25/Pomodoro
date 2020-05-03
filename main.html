@@ -9,21 +9,47 @@
 <body>
     <div class="infoSect">
         <div class="upsideInfo">
-            <img class="menu-img" src="./img/menu.svg" onclick="window.location.href='setting.html'">
+            <div class="topSect">
+                <div>
+                    <img class="menu-img" src="./img/menu.svg" onclick="window.location.href='setting.html'">
+                    <img class="refresh-img" src="./img/refersh.svg">
+                </div>
+                <div class="js-weather"></div>
+            </div>
             <div class="dateInfo" id="date"></div>
+            <div class="username">
+                <form></form>
+            </div>
         </div>
         <!-- <div class="concentInfo">
             <div class="concentAvgInfo">Concentration Average : </div>
             <div class="concentTimeInfo">Concentration Total Time : </div>
         </div> -->
-    </div>
-    <div class="buttonSect">
         <div class="buttonLocation">
-            <button>Start</button>
+            <button class="start-btn">Start</button>
+        </div>
+    </div>
+    <div class="todoSect">
+        <div class="todo-list">
+            <h2>Let's complete our goals! 📑</h2>
+            <form class="todo-form">
+                <input class="add-task" placeholder="What is your today's todo list?" />
+            </form>
+            <div class="pending">
+                <h2>To be done 📝</h2>
+                <ul></ul>
+            </div>
+            <div class="finished">
+                <h2>Done 😆😍</h2>
+                <ul></ul>
+            </div>
         </div>
     </div>
     <script src="./js/bg.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/weather.js"></script>
+    <script src="./js/username.js"></script>
+    <script src="./js/todo.js"></script>
 </body>
 
 </html>
