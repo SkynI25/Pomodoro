@@ -47,7 +47,7 @@ function okayBtnHandler(evt) {
     [...finishedList.children].forEach(el => {
       if (el.id === objID) {
         evt.target.innerHTML = "✅";
-        // pendingList.appendChild(el);
+        pendingList.appendChild(el);
         pendingToDos.push(finishedToDos.find(obj => `${obj.id}` === objID));
         store2LS(PENDING, pendingToDos);
         finishedToDos = finishedToDos.filter(todo => `${todo.id}` !== objID);
