@@ -75,50 +75,16 @@ p {
 .wrong-input {
     border: 2px solid red;
 }
-.nameOftitle {
-    margin-top : 5%;
-}
-.totalTime {
-    box-sizing: content-box;
-    text-align: center;
-    display : inline-block;
-    font-size: 30px;
-    width : 50%;
-}
-.avgConcent {
-    box-sizing: content-box;
-    text-align: center;
-    display : inline-block;
-    font-size: 30px;
-    width : 49%;
-}
-.displayNum {
-    margin : 1%;
-}
-.numOftotalTime {
-    box-sizing: content-box;
-    text-align: center;
-    display : inline-block;
-    font-size: 30px;
-    width : 50%;
-}
-.numOfavgConcent {
-    box-sizing: content-box;
-    text-align: center;
-    display : inline-block;
-    font-size: 30px;
-    width : 49%;
-}
-
 .setTimeNum {
     margin-top : 10px;
-}
-
-.buttonLocation {
-    text-align: center;
 }
 
 .menu-content, .set-mode, .setTimeNum {
     margin-left: 15px;
     margin-right: 15px;
+}
+.menubar, .set-mode, .set-time, .btn-location {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
