@@ -1,44 +1,40 @@
 ﻿<!DOCTYPE HTML>
 <html>
-
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/pomodoro.css" />
 </head>
-
 <body>
     <div>
         <img src="./img/home.svg" class="home-img" onclick="window.location.href='main.html'">
     </div>
-    <div id="numOfset">
-        1 POMO Concentration
-    </div>
-    <div id="setPomoNum">
-        00:00:00
-    </div>
-    <div class="buttonLocation">
-        <button id="startbtn">Start</button>
+    <div>
+        <p id="numOfset">
+            1 POMO
+        </p>
+        <h1 id="setPomoNum">
+            00:00:00
+        </h1>
+        <div class="buttonLocation">
+            <button id="startbtn">Start</button>
+        </div>
     </div>
     <!-- <div class="buttonLocation">
         <button onclick="stop_timer()">강제종료</button>
     </div> -->
-    <div class="nameOftitle">
+    <div class="time-table">
         <div class="totalTime">
-            Total Concentration Time
+            <div>⏱</div>
+            <p>Total Conc</p>
+            <p>0h 0m</p>
         </div>
         <div class="avgConcent">
-            Average Concentration
+            <div>🎰</div>
+            <p>Avg Conc</p>
+            <p>10.00</p>
         </div>
     </div>
-    <div class="displayNum">
-        <div class="numOftotalTime">
-            0.0
-        </div>
-        <div class="numOfavgConcent">
-            0.0
-        </div>
-    </div>
-    <div class="pomoSect">
+    <!-- <div class="pomoSect">
         <h4>Pomo Time : </h4>
         <p id="setNum">0 POMO 0 SET</p>
     </div>
@@ -46,7 +42,7 @@
     <div class="breakSect">
         <h4>Breaktime : </h4>
         <p id="setBreakNum"></p>
-    </div>
+    </div> -->
 
     <script src="./js/pomo.js"></script>
 </body>
