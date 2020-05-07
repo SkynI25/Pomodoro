@@ -1,8 +1,12 @@
-﻿const val1N = "Pomo Time";
+﻿import backIcon from '../img/back.svg';
+import '../css/setting.css';
+
+const val1N = "Pomo Time";
 const val2N = "Break Time";
 const val3N = "Big Break Time";
 const TIME = "timeSetting";
 const wrongInput = `wrong-input`;
+const backIMG = document.querySelector('.back-img');
 const pomoTime = document.querySelector('.pomoTime');
 // const breakTime = document.querySelector('.breakTime');
 // const bigbreakTime = document.querySelector('.bigbreakTime');
@@ -59,7 +63,17 @@ function initInput() {
     }
 }
 
+function imgHandler() {
+    window.location.href='./index.html';
+}
+
+function imgSetting() {
+    backIMG.src = `./public/${backIcon}`;
+    backIMG.addEventListener('click', imgHandler);
+}
+
 function init() {
+    imgSetting();
     initInput();
     document.querySelector('#setTimeValue').addEventListener('click', setChildValue);
 }

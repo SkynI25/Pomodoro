@@ -1,5 +1,8 @@
+import menuIcon from '../img/menu.svg';
+
 const todayText = document.querySelector('#date');
 const startBtn = document.querySelector('.buttonLocation > button');
+const menu_img = document.querySelector('.menu-img');
 
 const today = new Date();
 const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
@@ -17,7 +20,17 @@ function clickHandler() {
     }
 }
 
+function imgHandler() {
+    window.location.href = './setting.html';
+}
+
+function imgSetting() {
+    menu_img.src = `./public/${menuIcon}`;
+}
+
 function init() {
+    imgSetting();
+    menu_img.addEventListener('click', imgHandler);
     startBtn.addEventListener('click', clickHandler);
 }
 

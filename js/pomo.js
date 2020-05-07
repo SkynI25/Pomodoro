@@ -1,4 +1,7 @@
-﻿let minutes = 0;
+﻿import homeIcon from '../img/home.svg';
+import '../css/pomodoro.css';
+
+let minutes = 0;
 let timerHour = 0;
 let currSetNum = 1;
 let timerMinute = 0;
@@ -7,6 +10,7 @@ let nTimes4Compute = 0;
 const SET_NUM = 'currSetNum';
 
 const tids = [];
+const homeIMG = document.querySelector('.home-img');
 const startBtn = document.querySelector('#startbtn');
 const numOfSet = document.querySelector('#numOfset');
 const setPomoNum = document.querySelector('#setPomoNum');
@@ -96,7 +100,17 @@ function settingPomoTime() {
     setPomoNum.innerHTML = `${pad(hours4Display, 2)}:${pad(minutes4Display, 2)}:${pad(seconds4Display, 2)}`;
 }
 
+function imgHandler() {
+    window.location.href='./index.html';
+}
+
+function imgSetting() {
+    homeIMG.src = `public/${homeIcon}`;
+    homeIMG.addEventListener('click', imgHandler);
+}
+
 function init() {
+    imgSetting();
     if(!isNaN(parseInt(sessionValue[0]))) {
         settingPomoTime();
         startBtn.addEventListener('click', startTimer);

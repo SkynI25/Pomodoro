@@ -1,3 +1,5 @@
+import refreshIcon from '../img/refresh.svg';
+
 const IMG_NUM = 6;
 const BG_NUM = "bgNumber";
 const infoSector = document.querySelector('.infoSect');
@@ -35,7 +37,12 @@ function refreshHandler() {
     };
 }
 
+function imgSetting() {
+    refreshIMG.src = `./public/${refreshIcon}`;
+}
+
 function init() {
+    imgSetting();
     refreshIMG.addEventListener('click', refreshHandler);
     const bg_number = parseInt(getBGImage());
     paintImage(bg_number);
