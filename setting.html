@@ -13,27 +13,27 @@
     </div>
 
     <div class="set-mode">
-        <!-- <div class="notice">* Please select a mode to process pomodoro</div>
+        <div class="notice">* Please select a mode to process pomodoro</div>
         <div class="select-type">
             <div class="mode">
                 <div class="radio-button">
-                    <input type="radio" value="1" checked>
-                    <span class="mode-text">Set mode</span>
+                    <input type="radio" name="mode" value="1" checked>
+                    <span class="mode-text">Rate conc</span>
                 </div>
                 <div class="info-text">
-                    You can change the mode to Set(4 Pomo = 1 Set) mode
+                    You can rate your concentration score 0 ~ 10
                 </div>
             </div>
             <div class="mode">
                 <div class="radio-button">
-                    <input type="radio" value="2">
-                    <span class="mode-text">Pomo mode</span>
+                    <input type="radio" name="mode" value="2">
+                    <span class="mode-text">Only conc</span>
                 </div>
                 <div class="info-text">
-                    You can change the mode to Pomo(1 Pomo, 2, 3, ..., 10 Pomo) mode
+                    Keep concentrate without rating the score
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="notice">* You can set a Pomo time, Break time, Big break time to a couple of minutes.</div>
     </div>
     <div class="set-time">
@@ -45,7 +45,7 @@
                         <input type="text" class="pomoTime" /><span>minute</span>
                     </div>
                 </li>
-                <!-- <li>
+                <!--<li>
                     <p>Break Time<span class="explainText"> (Max: 30min)</span></p>
                     <div class="input-time">
                         <input type="text" class="breakTime" /><span>minute</span>
