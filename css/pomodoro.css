@@ -14,6 +14,68 @@ p {
     height : 60px;
     margin-top: 10px;
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.display-on {
+    animation: fadeIn 0.5s;
+    opacity: 1;
+}
+.display-off {
+    animation: fadeOut 0.5s;
+    opacity: 0;
+}
+.conc-zone {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conc-zone h1 {
+    color: #fff;
+    font-size: 60px;
+}
+
+.conc-zone div {
+    margin-bottom: 20px;
+}
+
+.conc-zone div h2 {
+    color: #fff;
+    display: inline;
+}
+
+.conc-zone .rating-num {
+    position: absolute;
+    margin: 0 7px;
+}
+
+.conc-zone button {
+    margin-top: 20px;
+}
+
+.conc-rate {
+    display: flex;
+}
+
+.conc-rate h3 {
+    margin-left: 10px;
+    color: #fff;
+}
+
 #numOfset{
     color: #fff;
     text-align: center;
@@ -39,35 +101,18 @@ p {
     margin:0;
 }
 .time-table {
+    display: flex;
+    justify-content: space-around;
     color: #fff;
-    margin-top : 350px;
+    margin-top : 250px;
 }
 .totalTime {
-    float: left;
     text-align: center;
     font-size: 30px;
-    width : 50%;
 }
 .avgConcent {
-    float: left;
     text-align: center;
     font-size: 30px;
-    width : 50%;
-}
-.numOftotalTime {
-    float: left;
-    text-align: center;
-    font-size: 30px;
-    width : 50%;
-}
-.numOfavgConcent {
-    float: left;
-    text-align: center;
-    font-size: 30px;
-    width : 50%;
-}
-.pomoSect {
-    color: #fff;
 }
 .breakSect {
     color: #fff;

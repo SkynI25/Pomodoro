@@ -6,15 +6,30 @@ let timerHour = 0;
 let currSetNum = 1;
 let timerMinute = 0;
 let nTimes4Compute = 0;
+let isConcMode = true;
 
 const SET_NUM = 'currSetNum';
+const SET_CONC = 'concNum';
+const TYPE = "mode";
 
 const tids = [];
 const homeIMG = document.querySelector('.home-img');
 const startBtn = document.querySelector('#startbtn');
 const numOfSet = document.querySelector('#numOfset');
 const setPomoNum = document.querySelector('#setPomoNum');
+const timerZone = document.querySelector('.timer-zone');
+const concZone = document.querySelector('.conc-zone');
+const concInput = concZone.querySelector('input');
+const concButton = concZone.querySelector('button');
 const sessionValue = localStorage.getItem('timeSetting') === null ? [] : localStorage.getItem('timeSetting').split(',');
+const concAVG = document.querySelector('.conc-avg');
+const totalTime = document.querySelector('.total-time');
+const congratsWords = [
+    `Great job!`,
+    `Nice work!`,
+    `Well done!`,
+    `Keep up!`
+]
 
 function pad(n, width, z) {
     z = z || '0';
@@ -22,12 +37,65 @@ function pad(n, width, z) {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
-let now4Display = new Date().getTime();
 let countDownDate4Display = new Date().getTime() + parseFloat(sessionValue[0]) * 60000;
-let distance4Display = countDownDate4Display - now4Display;
+let distance4Display = countDownDate4Display - new Date();
 let hours4Display = Math.floor((distance4Display % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 let minutes4Display = Math.floor((distance4Display % (1000 * 60 * 60)) / (1000 * 60));
 let seconds4Display = Math.floor((distance4Display % (1000 * 60)) / 1000);
+
+function initInputValue() {
+    concInput.value = 5;
+    const h2 = document.querySelector('.conc-zone .rating-num');
+    h2.textContent = 5;
+}
+
+function displayConcZone() {
+    if(timerZone.classList.contains('display-on')) {
+        timerZone.classList.remove('display-on');
+    }
+    if(!timerZone.classList.contains('display-off')) {
+        timerZone.classList.add('display-off');
+    }
+    if(concZone.classList.contains('display-off')) {
+        concZone.classList.remove('display-off');
+    }
+    if(!concZone.classList.contains('display-on')) {
+        concZone.classList.add('display-on');
+    }
+    chooseWords();
+    setTimeout(() => {
+        timerZone.style.display = "none";
+        concZone.style.display = "flex";
+    }, 500);
+}
+
+function displayTimezone() {
+    if(timerZone.classList.contains('display-off')) {
+        timerZone.classList.remove('display-off');
+    }
+    if(!timerZone.classList.contains('display-on')) {
+        timerZone.classList.add('display-on');
+    }
+    if(concZone.classList.contains('display-on')) {
+        concZone.classList.remove('display-on');
+    }
+    if(!concZone.classList.contains('display-off')) {
+        concZone.classList.add('display-off');
+    }
+    
+    setTimeout(() => {
+        concZone.style.display = "none";
+        timerZone.style.display = "block";
+        initInputValue();
+    }, 500);
+}
+
+function sumConcTime() {
+    let concTotal = (parseFloat(sessionValue[0]) * 60000) * localStorage.getItem(SET_NUM);
+    let hour = Math.floor((concTotal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minute = Math.floor((concTotal % (1000 * 60 * 60)) / (1000 * 60));
+    totalTime.textContent = `${hour}h ${minute}m`;
+}
 
 function stateChanged(evt) {
     setTimeout(() => {
@@ -36,6 +104,9 @@ function stateChanged(evt) {
         numOfSet.textContent = `${currSetNum} POMO`;
         settingPomoTime();
         addStartHandler();
+        if(isConcMode) {
+            displayConcZone();
+        }
     }, 1000);
 }
 
@@ -71,6 +142,7 @@ function startTimer(evt) {
                 }
                 minutes = i;
                 if(minutes === 0) {
+                    sumConcTime();
                     currSetNum++;
                     localStorage.setItem(SET_NUM, currSetNum);
                     res();
@@ -104,13 +176,59 @@ function imgHandler() {
     window.location.href='./index.html';
 }
 
+function chooseWords() {
+    const h1 = concZone.querySelector('h1');
+    const random = Math.floor(Math.random() * congratsWords.length);
+    h1.textContent = congratsWords[random];
+}
+
+function calcConcentration() {
+    const setConc = localStorage.getItem(SET_CONC);
+    let concArr = JSON.parse(setConc);
+    let avg = (concArr.reduce((a,h) => a += h)/concArr.length).toFixed(2);
+    concAVG.textContent = avg;
+}
+
+function concBtnHandler() {
+    if(confirm('Save the score?')) {
+        const rate = Number(concInput.value);
+        const setConc = localStorage.getItem(SET_CONC);
+        let concArr = JSON.parse(setConc);
+        if(concArr !== null) {
+            concArr.push(rate);
+            localStorage.setItem(SET_CONC, JSON.stringify(concArr));
+        }
+        calcConcentration();
+        displayTimezone();
+    }
+}
+
+function concInputHandler(evt) {
+    const h2 = document.querySelector('.conc-zone .rating-num');
+    h2.textContent = evt.target.value;
+}
+
 function imgSetting() {
     homeIMG.src = `public/${homeIcon}`;
     homeIMG.addEventListener('click', imgHandler);
 }
 
+function modeSetting() {
+    const avgConcent = document.querySelector('.avgConcent');
+    let modeType = localStorage.getItem(TYPE);
+    if(modeType !== null) {
+        if(modeType == 2) {
+            avgConcent.style.display = "none";
+            isConcMode = false;
+        }
+    }
+}
+
 function init() {
     imgSetting();
+    modeSetting();
+    concInput.addEventListener('input', concInputHandler);
+    concButton.addEventListener('click', concBtnHandler);
     if(!isNaN(parseInt(sessionValue[0]))) {
         settingPomoTime();
         startBtn.addEventListener('click', startTimer);
@@ -118,6 +236,7 @@ function init() {
         numOfSet.innerHTML = "Before you start, please set the times in the setting page first."
     }
     localStorage.setItem(SET_NUM, currSetNum);
+    localStorage.setItem(SET_CONC, JSON.stringify([]));
 }
 
 init();
