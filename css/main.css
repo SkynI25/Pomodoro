@@ -3,22 +3,18 @@ body {
     background: #f3f3f3;
 }
 
+.instruction-cover {
+    width: 1010px;
+    margin-left:auto;
+    margin-right: auto;
+    background:rgba(53, 59, 72, 0.7);
+    background-image: url('public/instruct.png');
+    background-size: cover;
+}
+
 .infoSect {
     position: relative;
     height: 400px;
-}
-
-.upsideInfo {
-    height: 80%;
-}
-
-.concentInfo {
-    height: 20%;
-}
-
-.buttonLocation {
-    padding : 10px;
-    text-align: center;
 }
 
 .menu-img {
@@ -61,6 +57,9 @@ body {
     font-weight: bold;
     color: #353b48;
     text-align: center;
+    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
 }
 
 @keyframes fadeIn {
@@ -88,15 +87,38 @@ body {
     justify-content: center;
 }
 
+.username h2 {
+    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+}
+
 .name-input {
     width: 255px;
     height: 20px;
 }
 
-/* .todoSect {
+.buttonLocation {
     display: flex;
-    justify-content: center;
-} */
+    padding : 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonLocation > h1 {
+    font-size: 50px;
+    margin:0;
+    cursor: pointer;
+    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+}
+
+.buttonLocation h2 {
+    cursor: pointer;
+    margin:0;
+    font-size: 35px;
+}
 
 .todo-list {
     margin: 10px;
@@ -105,24 +127,6 @@ body {
 .add-task {
     width: 200px;
     height: 20px;
-}
-
-.concentAvgInfo {
-    box-sizing: content-box;
-    font-size: 30px;
-    display: inline-block;
-    color: #f3f3f3;
-    width: 50%;
-    text-align: center;
-}
-
-.concentTimeInfo {
-    text-align: center;
-    box-sizing: content-box;
-    font-size: 30px;
-    display: inline-block;
-    color: #f3f3f3;
-    width: 49%;
 }
 
 /* button */
@@ -135,11 +139,11 @@ body {
     font-size: 1.6em;
     padding: 0 2em;
     cursor: pointer;
-    transition: 800ms ease all;
     outline: none;
 }
 
 .start-btn:hover {
+transition: 800ms ease all;
     background: #fff;
     color: #1AAB8A;
 }
@@ -171,6 +175,9 @@ body {
 
 .infoSect, .todoSect {
     width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
 }
