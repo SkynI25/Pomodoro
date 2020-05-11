@@ -1,6 +1,6 @@
 import refreshIcon from '../img/refresh.svg';
 
-const IMG_NUM = 6;
+const IMG_NUM = 5;
 const BG_NUM = "bgNumber";
 const infoSector = document.querySelector('.infoSect');
 const refreshIMG = document.querySelector('.refresh-img');
@@ -29,7 +29,7 @@ function removePrevImage() {
 }
 
 function refreshHandler() {
-    if(confirm('Do you want to change the background image?')) {
+    if(confirm('배경을 변경하시겠습니까?')) {
         const number = genRandom();
         localStorage.setItem(BG_NUM, number);
         removePrevImage();

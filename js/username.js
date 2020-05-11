@@ -13,7 +13,7 @@ function inputHandler(evt) {
 
 function appendInputTag() {
     const inputName = document.createElement('input');
-    inputName.placeholder = "What is your name? (Type here and enter)";
+    inputName.placeholder = "성함을 입력해주세요(입력 후 엔터)";
     inputName.classList.add(name_input);
     name_form.appendChild(inputName);
     name_form.addEventListener('submit', inputHandler);
@@ -23,11 +23,11 @@ function greetingMSG() {
     let greeting = "";
     const now = new Date().getHours();
     if(now < 12) {
-        greeting = "Good morning";
+        greeting = "굿 모닝";
     } else if(now >= 12 && now < 17) {
-        greeting = "Good afternoon";
+        greeting = "굿 에프터눈";
     } else {
-        greeting = "Good evening";
+        greeting = "굿 이브닝";
     }
     return greeting;
 }

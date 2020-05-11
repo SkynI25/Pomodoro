@@ -31,9 +31,9 @@ function setData2LS(listVal) {
         if(el.children[0].checked) {
             localStorage.setItem(TYPE, el.children[0].value);
         }
-    })
+    });
     localStorage.setItem(TIME, listVal);
-    window.location.href='index.html';
+    window.location.href='./index.html';
 }
 
 function setChildValue() {
@@ -47,14 +47,14 @@ function setChildValue() {
     // listVal.push(val3);
 
     if(valiCheck(val1, timesArr[0].range)) { // && valiCheck(val2, timesArr[1].range) && valiCheck(val3, timesArr[2].range)) {
-        if(confirm("Save the times?")) {
+        if(confirm("저장하시겠습니까?")) {
             setData2LS(listVal);
         }
     } else {
         pointWrongInput(timesArr[0]);
         // pointWrongInput(timesArr[1]);
         // pointWrongInput(timesArr[2]);
-        alert(`Please setting the time with a valid number.`);
+        alert(`정확한 숫자로 값을 입력해주세요.`);
     }
 }
 
@@ -63,11 +63,20 @@ function valiCheck(data,range) {
 }
 
 function initInput() {
-    if(localStorage.getItem('timeSetting')) {
-        const values = localStorage.getItem('timeSetting').split(",");
+    if(localStorage.getItem(TIME)) {
+        const values = localStorage.getItem(TIME).split(",");
         pomoTime.value = values[0] ? values[0] : 0;
         // breakTime.value = values[1] ? values[1] : 0;
         // bigbreakTime.value = values[2];
+    }
+    if(localStorage.getItem(TYPE)) {
+        [...modeType].forEach(el => {
+            if(el.children[0].value == localStorage.getItem(TYPE)) {
+                el.children[0].checked = true;
+            } else {
+                el.children[0].checked = false;
+            }
+        });
     }
 }
 

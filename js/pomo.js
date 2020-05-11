@@ -97,16 +97,26 @@ function sumConcTime() {
     totalTime.textContent = `${hour}h ${minute}m`;
 }
 
+function displayOnOff() {
+    return new Promise(function(res, rej) {
+        if(isConcMode) {
+            setTimeout(() => {
+                displayConcZone();
+                res();
+            }, 1000);
+        } else {
+            res();
+        }
+    });
+}
+
 function stateChanged(evt) {
     setTimeout(() => {
         evt.target.textContent = "Start";
         currSetNum = localStorage.getItem(SET_NUM);
-        numOfSet.textContent = `${currSetNum} POMO`;
+        numOfSet.textContent = `${currSetNum} 세트`;
         settingPomoTime();
         addStartHandler();
-        if(isConcMode) {
-            displayConcZone();
-        }
     }, 1000);
 }
 
@@ -149,7 +159,7 @@ function startTimer(evt) {
                 }
             }, (minutes - i) * 1000));
         }
-    }).then(_ => stateChanged(evt));
+    }).then(displayOnOff).then(_ => stateChanged(evt));
 }
 
 function addStartHandler() {
@@ -190,7 +200,7 @@ function calcConcentration() {
 }
 
 function concBtnHandler() {
-    if(confirm('Save the score?')) {
+    if(confirm('저장하시겠습니까?')) {
         const rate = Number(concInput.value);
         const setConc = localStorage.getItem(SET_CONC);
         let concArr = JSON.parse(setConc);
@@ -233,7 +243,7 @@ function init() {
         settingPomoTime();
         startBtn.addEventListener('click', startTimer);
     } else {
-        numOfSet.innerHTML = "Before you start, please set the times in the setting page first."
+        numOfSet.innerHTML = "시작하시기 전에, 세팅화면에서 시간을 설정해주세요."
     }
     localStorage.setItem(SET_NUM, currSetNum);
     localStorage.setItem(SET_CONC, JSON.stringify([]));
