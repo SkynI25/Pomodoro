@@ -5,6 +5,7 @@ body {
 
 .instruction-cover {
     width: 1010px;
+    height: 640px;
     margin-left:auto;
     margin-right: auto;
     background:rgba(53, 59, 72, 0.7);
