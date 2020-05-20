@@ -1,8 +1,6 @@
-html {
-    height: 100%;
-}
-body {
+html, body {
     margin: 0;
+    height: 100%;
     background: linear-gradient(180deg, rgb(0, 204, 153), rgb(204, 153, 255)); /* Standard syntax (must be last) */
 }
 p {
