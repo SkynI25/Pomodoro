@@ -1,7 +1,7 @@
 const USER_NAME = 'username';
 const name_input = 'name-input';
-const name_sector = document.querySelector('.username');
-const name_form = name_sector.querySelector('form');
+// const name_sector = document.querySelector('.username');
+// const name_form = name_sector.querySelector('form');
 
 function inputHandler(evt) {
     evt.preventDefault();
@@ -23,11 +23,11 @@ function greetingMSG() {
     let greeting = "";
     const now = new Date().getHours();
     if(now < 12) {
-        greeting = "굿 모닝";
+        greeting = "Good morning";
     } else if(now >= 12 && now < 17) {
-        greeting = "굿 에프터눈";
+        greeting = "Good afternoon";
     } else {
-        greeting = "굿 이브닝";
+        greeting = "Good evening";
     }
     return greeting;
 }
@@ -47,7 +47,7 @@ function getUserName() {
 }
 
 function init() {
-    getUserName();
+    // getUserName();
 }
 
 init();
