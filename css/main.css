@@ -79,14 +79,15 @@ html, body {
 }
 
 .todo-form {
+    position: relative;
     display: flex;
     justify-content: center;
 }
 
 .todo-form i {
     position: absolute;
-    right: 800px;
-    top: 330px;
+    right: 50px;
+    top: 10px;
     cursor: pointer;
 }
 
@@ -107,21 +108,26 @@ html, body {
     border-radius: 10px;
 }
 
+.pending ul::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
 .pending ul li {
     background-color: rgba(70,63,63, 0.7);
-    height: 50px;
     font-size: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 390px;
     border-radius: 5px;
-    padding: 0 17px;
+    padding: 5px 15px;
     margin: 15px 5px 15px 0;
 }
 
 .pending ul li span {
     color: #fff;
+    margin-left: 10px;
+    word-break: break-all;
 }
 
 .fa-times-circle {
@@ -196,6 +202,10 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
     height: 55%;
+}
+
+.todoSect {
+    width: 460px;
 }
 
 .infoSect, .todoSect {

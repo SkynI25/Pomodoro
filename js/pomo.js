@@ -1,7 +1,6 @@
-﻿import homeIcon from '../img/home.svg';
-import '../css/pomodoro.css';
+﻿import '../css/pomodoro.css';
 
-let minutes = 0;
+let seconds = 0;
 let timerHour = 0;
 let currSetNum = 1;
 let timerMinute = 0;
@@ -13,7 +12,7 @@ const SET_CONC = 'concNum';
 const TYPE = "mode";
 
 const tids = [];
-const homeIMG = document.querySelector('.home-img');
+const xMark = document.querySelector('.top-area i');
 const startBtn = document.querySelector('#startbtn');
 const numOfSet = document.querySelector('#numOfset');
 const setPomoNum = document.querySelector('#setPomoNum');
@@ -21,14 +20,13 @@ const timerZone = document.querySelector('.timer-zone');
 const concZone = document.querySelector('.conc-zone');
 const concInput = concZone.querySelector('input');
 const concButton = concZone.querySelector('button');
-const sessionValue = localStorage.getItem('timeSetting') === null ? [] : localStorage.getItem('timeSetting').split(',');
+const lsValue = localStorage.getItem('timeSetting') === null ? 30 : Number(parseFloat(localStorage.getItem('timeSetting')).toFixed(1));
 const concAVG = document.querySelector('.conc-avg');
 const totalTime = document.querySelector('.total-time');
 const congratsWords = [
     `Great job!`,
     `Nice work!`,
-    `Well done!`,
-    `Keep up!`
+    `Well done!`
 ]
 
 function pad(n, width, z) {
@@ -37,7 +35,7 @@ function pad(n, width, z) {
     return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
-let countDownDate4Display = new Date().getTime() + parseFloat(sessionValue[0]) * 60000;
+let countDownDate4Display = new Date().getTime() + lsValue * 60000;
 let distance4Display = countDownDate4Display - new Date();
 let hours4Display = Math.floor((distance4Display % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 let minutes4Display = Math.floor((distance4Display % (1000 * 60 * 60)) / (1000 * 60));
@@ -91,7 +89,7 @@ function displayTimezone() {
 }
 
 function sumConcTime() {
-    let concTotal = (parseFloat(sessionValue[0]) * 60000) * localStorage.getItem(SET_NUM);
+    let concTotal = (lsValue * 60000) * localStorage.getItem(SET_NUM);
     let hour = Math.floor((concTotal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minute = Math.floor((concTotal % (1000 * 60 * 60)) / (1000 * 60));
     totalTime.textContent = `${hour}h ${minute}m`;
@@ -121,17 +119,17 @@ function stateChanged(evt) {
 }
 
 function startTimer(evt) {
-    const nTimes4Count = parseFloat(sessionValue[0]);
-    minutes = minutes === 0 ? nTimes4Count * 60 : minutes;
+    const nTimes4Count = lsValue;
+    seconds = seconds === 0 ? nTimes4Count * 60 : seconds;
     timerHour = timerHour === 0 ? hours4Display : timerHour;
     timerMinute = timerMinute === 0 ? minutes4Display : timerMinute;
-    nTimes4Compute = nTimes4Compute === 0 ? /\d\.\d/.test(sessionValue[0]) ? Math.floor(sessionValue[0]) : parseInt(sessionValue[0]) : nTimes4Compute;
+    nTimes4Compute = nTimes4Compute === 0 ? /\d\.\d/.test(lsValue+'') ? Math.floor(lsValue) : parseInt(lsValue) : nTimes4Compute;
 
     evt.target.textContent = "Stop";
     addStopHandler();
 
     return new Promise(function(res, rej) {
-        for(let i = minutes; i >= 0; i--) {
+        for(let i = seconds; i >= 0; i--) {
             tids.push(setTimeout(function() {
                 const computedNum = i >= 60 ? i - (nTimes4Compute) * 60 : i;
                 if(computedNum !== 60) {
@@ -150,14 +148,14 @@ function startTimer(evt) {
                     }
                     nTimes4Compute = timerHour * 60 + timerMinute;
                 }
-                minutes = i;
-                if(minutes === 0) {
+                seconds = i;
+                if(seconds === 0) {
                     sumConcTime();
                     currSetNum++;
                     localStorage.setItem(SET_NUM, currSetNum);
                     res();
                 }
-            }, (minutes - i) * 1000));
+            }, (seconds - i) * 1000));
         }
     }).then(displayOnOff).then(_ => stateChanged(evt));
 }
@@ -182,8 +180,8 @@ function settingPomoTime() {
     setPomoNum.innerHTML = `${pad(hours4Display, 2)}:${pad(minutes4Display, 2)}:${pad(seconds4Display, 2)}`;
 }
 
-function imgHandler() {
-    window.location.href='./index.html';
+function xMarkHandler() {
+    window.location.href='./main.html';
 }
 
 function chooseWords() {
@@ -200,17 +198,15 @@ function calcConcentration() {
 }
 
 function concBtnHandler() {
-    if(confirm('저장하시겠습니까?')) {
-        const rate = Number(concInput.value);
-        const setConc = localStorage.getItem(SET_CONC);
-        let concArr = JSON.parse(setConc);
-        if(concArr !== null) {
-            concArr.push(rate);
-            localStorage.setItem(SET_CONC, JSON.stringify(concArr));
-        }
-        calcConcentration();
-        displayTimezone();
+    const rate = Number(concInput.value);
+    const setConc = localStorage.getItem(SET_CONC);
+    let concArr = JSON.parse(setConc);
+    if(concArr !== null) {
+        concArr.push(rate);
+        localStorage.setItem(SET_CONC, JSON.stringify(concArr));
     }
+    calcConcentration();
+    displayTimezone();
 }
 
 function concInputHandler(evt) {
@@ -219,8 +215,7 @@ function concInputHandler(evt) {
 }
 
 function imgSetting() {
-    homeIMG.src = `public/${homeIcon}`;
-    homeIMG.addEventListener('click', imgHandler);
+    xMark.addEventListener('click', xMarkHandler);
 }
 
 function modeSetting() {
@@ -239,11 +234,9 @@ function init() {
     modeSetting();
     concInput.addEventListener('input', concInputHandler);
     concButton.addEventListener('click', concBtnHandler);
-    if(!isNaN(parseInt(sessionValue[0]))) {
+    if(!isNaN(lsValue)) {
         settingPomoTime();
         startBtn.addEventListener('click', startTimer);
-    } else {
-        numOfSet.innerHTML = "시작하시기 전에, 세팅화면에서 시간을 설정해주세요."
     }
     localStorage.setItem(SET_NUM, currSetNum);
     localStorage.setItem(SET_CONC, JSON.stringify([]));

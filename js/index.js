@@ -12,7 +12,7 @@ const saveSetting = document.querySelector('.save-setting');
 const username = document.querySelector('.username');
 
 function valiCheck(data) {
-    return (!/\D/.test(data) || /\d(\.?)[1-9]/.test(data)) && Number(data) > 0;
+    return (!/\D/.test(data) || /\d\.[1-9]{1}/.test(data)) && Number(data) > 0;
 }
 
 function pointWrongInput(data) {
@@ -55,10 +55,11 @@ function setChildValue() {
 
 function initInput() {
     if(localStorage.getItem(TIME)) {
-        const values = localStorage.getItem(TIME).split(",");
-        pomoTime.value = values[0] ? values[0] : 0;        
+        const value = localStorage.getItem(TIME);
+        pomoTime.value = value;
+    } else {
+        pomoTime.value = 30;
     }
-    pointWrongInput(pomoTime);
     if(localStorage.getItem(TYPE)) {
         [...modeType].forEach(el => {
             if(el.children[0].value == localStorage.getItem(TYPE)) {
