@@ -72,19 +72,13 @@ webpack.config.js 파일에 설정은 아래와 같은 형식으로 합니다.
                 test: /\.css$/,
                 use: [
                     { loader : 'style-loader' },
-                    {
-                        loader : 'css-loader',
-                        options: {
-                            url: false,
-                        }
-                    },
+                    { loader : 'css-loader' }
                 ],
             },
             ...
 ```
 
-위와 같이 html 파일이 여러개 인 경우를 위해 entry 속성을 지정하고 output을 설정합니다.<br>
-이 때 css-loader의 옵션을 "url : false" 로 한 것은 webpack이 리소스를 변환 시켰으나 경로문제로 제대로 읽지 못하는 것을 해결하기 위한 것입니다.
+위와 같이 html 파일이 여러개 인 경우를 위해 entry 속성을 지정하고 output을 설정합니다.
 
 ## Deployment
 

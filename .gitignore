@@ -1,3 +1,7 @@
 /node_modules
 webpack.config.*
 package-lock.json
+/src
+/coverage
+radio.html
+/tests

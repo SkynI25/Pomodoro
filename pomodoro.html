@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
+    <title>Concentrate</title>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/232d9d6904.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="time-info">
-        <div>
-            <img class="home-img">
+        <div class="top-area">
+            <i class="fas fa-times fa-3x"></i>
         </div>
         <div class="timer-zone">
             <p id="numOfset">
@@ -16,7 +18,7 @@
                 00:00:00
             </h1>
             <div class="buttonLocation">
-                <button id="startbtn">시작</button>
+                <button id="startbtn">Start</button>
             </div>
         </div>
         <div class="conc-zone">
@@ -24,8 +26,8 @@
             <div>
                 <h2>나의 집중력 점수는 :</h2><h2 class="rating-num">5</h2>
             </div>
-            <input type="range" min="0" max="10" step="0.5">
-            <button>save</button>
+            <input type="range" class="slider" min="0" max="10" step="0.5">
+            <button>저장</button>
         </div>
         <div class="time-table">
             <div class="totalTime">
@@ -36,16 +38,10 @@
             <div class="avgConcent">
                 <div>🐱‍💻</div>
                 <p>평균 집중력</p>
-                <p class="conc-avg">10.00</p>
+                <p class="conc-avg">00.00</p>
             </div>
         </div>
     </div>
-    <!-- 
-    <div class="breakSect">
-        <h4>Breaktime : </h4>
-        <p id="setBreakNum"></p>
-    </div> -->
-
     <script src="./public/pomo_bundle.js"></script>
 </body>
 

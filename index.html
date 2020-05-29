@@ -1,48 +1,77 @@
 ﻿<!DOCTYPE HTML>
 <html>
-
 <head>
+    <title>Setting</title>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/232d9d6904.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div>
-        <div class="infoSect">
-            <div>
-                <div class="topSect">
-                    <div>
-                        <img class="menu-img">
-                        <img class="refresh-img">
-                    </div>
-                    <div class="js-weather"></div>
-                </div>
-                <div>
-                    <div class="dateInfo" id="date"></div>
-                    <div class="username">
-                        <form></form>
-                    </div>
-                </div>
+    <div class="menubar">
+        <div class="menu-content">
+            <div class="left-side">
+                <i class="fas fa-times fa-2x"></i>
+                <span class="page-title">기본 설정 입력</span>
             </div>
-            <div class="buttonLocation">
-                <h1>🗑</h1>
-                <button class="start-btn">시작</button>
-                <h2>❔</h2>
+            <div class="right-side">
+                <p class="save-setting">완료</p>
             </div>
         </div>
-        <div class="todoSect">
-            <div class="todo-list">
-                <h2>오늘 끝낼 목표를 적어보세요! 📑</h2>
-                <form class="todo-form">
-                    <input class="add-task" placeholder="오늘의 할 일은 무엇인가요?" />
-                </form>
-                <div class="pending">
-                    <h2>해야할 것 📝</h2>
-                    <ul></ul>
+    </div>
+    <div class="set-name">
+        <div class="set-name-inner">
+            <div class="setUserName">
+                <ul>
+                    <li>
+                        <input type="text" class="username" placeholder="+ 성함을 입력해주세요"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="set-mode">
+        <div class="set-mode-inner">
+            <div class="notice">* 진행 모드를 선택해주세요</div>
+            <div class="select-type">
+                <div class="mode">
+                    <div class="radio-button">
+                        <label>
+                            <input class="mode-type" type="radio" name="mode" value="1" checked>
+                            <span class="design"></span>
+                            <span class="mode-text">집중력 평가</span>
+                        </label>
+                    </div>
+                    <div class="info-text">
+                        0부터 10까지 집중력을 평가합니다.
+                    </div>
                 </div>
-                <div class="finished">
-                    <h2>끝낸 것 😆😍</h2>
-                    <ul></ul>
+                <div class="mode">
+                    <div class="radio-button">
+                        <label>
+                            <input class="mode-type" type="radio" name="mode" value="2">
+                            <span class="design"></span>
+                            <span class="mode-text">Only 집중</span>
+                        </label>
+                    </div>
+                    <div class="info-text">
+                        카운트 다운만 합니다.
+                    </div>
                 </div>
+            </div>
+            <div class="notice">* 집중할 시간을 설정해주세요</div>
+        </div>
+    </div>
+    <div class="set-time">
+        <div class="set-time-inner">
+            <div class="setPomoTime">
+                <ul>
+                    <li>
+                        <p>집중 시간</p>
+                        <div class="input-time">
+                            <input type="text" class="pomoTime" /><span>minute</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

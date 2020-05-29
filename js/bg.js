@@ -2,14 +2,13 @@ import refreshIcon from '../img/refresh.svg';
 
 const IMG_NUM = 5;
 const BG_NUM = "bgNumber";
-const infoSector = document.querySelector('.infoSect');
-const refreshIMG = document.querySelector('.refresh-img');
+const body = document.querySelector('body');
 
-function paintImage(num) {
+function paintImage() {
     const image = new Image();
-    image.src = `img/${num+1}.jpg`;
+    image.src = `img/1.jpg`;
     image.classList.add("bg-image");
-    infoSector.prepend(image);
+    body.prepend(image);
 }
 
 function genRandom() {
@@ -42,10 +41,7 @@ function imgSetting() {
 }
 
 function init() {
-    imgSetting();
-    refreshIMG.addEventListener('click', refreshHandler);
-    const bg_number = parseInt(getBGImage());
-    paintImage(bg_number);
+    paintImage();
 }
 
 init();

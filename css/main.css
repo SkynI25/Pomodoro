@@ -1,66 +1,58 @@
-body {
+html, body {
     margin: 0;
-    background: #f3f3f3;
-}
-
-.instruction-cover {
-    width: 1010px;
-    height: 640px;
-    margin-left:auto;
-    margin-right: auto;
-    background:rgba(53, 59, 72, 0.7);
-    background-image: url('public/instruct.png');
-    background-size: cover;
-}
-
-.infoSect {
-    position: relative;
-    height: 400px;
+    height: 100%;
 }
 
 .menu-img {
     cursor: pointer;
-    width : 60px;
-    height : 60px;
-}
-
-.refresh-img {
-    margin-left: 5px;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
+    height : 100px;
 }
 
 .topSect {
     display: flex;
     justify-content: space-between;
+    height: 80px;
 }
 
-.topSect div {
-    display: flex;
-    align-items: center;
+@keyframes cover-in-out {
+    0% { transform: translateY(0px); }
+    10% { transform: translateY(70px); }
+    90% { transform: translateY(70px); }
+    100% { transform: translateY(0px); }
+}
+
+.topSect-cover {
+    background: linear-gradient(90deg, #C4C4C4, #78CDDF);
+    border-radius: 0 0 4px 4px;
+    position: fixed;
+    top: -75px;
+    width: 100%;
+    padding: 20px;
+    animation: cover-in-out 5s ease-in-out forwards;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: baseline;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.greeting {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
 }
 
 .js-weather {
     display: flex;
-    margin-right: 10px;
+    margin-right: 20px;
     align-items: center;
 }
 
 .js-weather p {
+    margin: 0;
     margin-left: 5px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.dateInfo {
     font-size: 20px;
-    font-weight: bold;
-    color: #353b48;
-    text-align: center;
-    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+    color: #fff;
 }
 
 @keyframes fadeIn {
@@ -82,57 +74,87 @@ body {
     animation: fadeIn .5s linear;
 }
 
-.username {
-    margin-top: 30px;
+.todo-list {
+    margin: 10px;
+}
+
+.todo-form {
+    position: relative;
     display: flex;
     justify-content: center;
 }
 
-.username h2 {
-    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
+.todo-form i {
+    position: absolute;
+    right: 50px;
+    top: 10px;
+    cursor: pointer;
 }
 
-.name-input {
-    width: 255px;
-    height: 20px;
+.pending ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 150px;
+}
+
+.pending ul::-webkit-scrollbar {
+    width: 10px;
+}
+.pending ul::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+.pending ul::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.pending ul li {
+    background-color: rgba(70,63,63, 0.7);
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 390px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 15px 5px 15px 0;
+}
+
+.pending ul li span {
+    color: #fff;
+    margin-left: 10px;
+    word-break: break-all;
+}
+
+.fa-times-circle {
+    color: #f43127;
+    text-shadow: 3px 5px 3px rgba(44, 44, 44, 0.8);
+    cursor: pointer;
+}
+
+.add-task {
+    width: 350px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 4px;
+    background-color: #E4E2E2;
+    padding-left: 10px;
+    border-style: none;
+    outline: none;
 }
 
 .buttonLocation {
     display: flex;
     padding : 10px;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
 }
 
-.buttonLocation > h1 {
-    font-size: 50px;
-    margin:0;
-    cursor: pointer;
-    text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -moz-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-    -webkit-text-shadow: -1px 0 #F2F1F6, 0 1px #F2F1F6, 1px 0 #F2F1F6, 0 -1px #F2F1F6;
-}
-
-.buttonLocation h2 {
-    cursor: pointer;
-    margin:0;
-    font-size: 35px;
-}
-
-.todo-list {
-    margin: 10px;
-}
-
-.add-task {
-    width: 200px;
-    height: 20px;
-}
-
-/* button */
 .start-btn {
-    background: #1AAB8A;
+    background: rgba(65,159,245, 0.7);
     color: #fff;
     border: none;
     position: relative;
@@ -141,12 +163,13 @@ body {
     padding: 0 2em;
     cursor: pointer;
     outline: none;
+    border-radius: 4px;
 }
 
 .start-btn:hover {
-transition: 800ms ease all;
-    background: #fff;
-    color: #1AAB8A;
+    transition: 800ms ease all;
+    background: #eee;
+    color: rgba(65,159,245, 0.7);
 }
 
 .start-btn:before,
@@ -157,7 +180,7 @@ transition: 800ms ease all;
     right: 0;
     height: 2px;
     width: 0;
-    background: #1AAB8A;
+    background: rgba(65,159,245, 0.7);
     transition: 400ms ease all;
 }
 
@@ -174,11 +197,18 @@ transition: 800ms ease all;
     transition: 800ms ease all;
 }
 
-.infoSect, .todoSect {
-    width: 1000px;
+.infoSect {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 55%;
+}
+
+.todoSect {
+    width: 460px;
+}
+
+.infoSect, .todoSect {
     margin-left: auto;
     margin-right: auto;
 }
