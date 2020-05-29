@@ -55,7 +55,11 @@ function setChildValue() {
 
 function initInput() {
     if(localStorage.getItem(TIME)) {
-        const value = localStorage.getItem(TIME);
+        let value = localStorage.getItem(TIME);
+        if(parseFloat(value) < 0.1) {
+            value = 30;
+            localStorage.setItem(TIME, value);
+        }
         pomoTime.value = value;
     } else {
         pomoTime.value = 30;
