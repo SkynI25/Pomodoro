@@ -4,12 +4,16 @@ import "./username.js";
 const TYPE = "mode";
 const TIME = "timeSetting";
 const USER_NAME = "username";
+const IS_NEW = 'newUser';
 const wrongInput = "wrong-input";
 const xMark = document.querySelector('.left-side i');
 const pomoTime = document.querySelector('.pomoTime');
 const modeType = document.querySelectorAll('.radio-button label');
 const saveSetting = document.querySelector('.save-setting');
 const username = document.querySelector('.username');
+const intro = document.querySelector('.intro');
+const introCloseBtn = intro.querySelector('.intro-inner .closeBtn button');
+const questionMark = document.querySelector('.copyright i');
 
 function valiCheck(data) {
     return (!/\D/.test(data) || /\d\.[1-9]{1}/.test(data)) && Number(data) > 0;
@@ -78,11 +82,22 @@ function initInput() {
     }
 }
 
+function isIntroNeeded() {
+    if(localStorage.getItem(IS_NEW) === "checked") {
+        intro.style.display = "none";
+    } else {
+        localStorage.setItem(IS_NEW, "checked");
+    }
+    introCloseBtn.addEventListener('click', () => intro.style.display = "none");
+}
+
 function init() {
     initInput();
     saveSetting.addEventListener('click', setChildValue);
     pomoTime.addEventListener('focusout', () => pointWrongInput(pomoTime));
     xMark.addEventListener('click', () => window.location.href='./main.html');
+    questionMark.addEventListener('click', () => intro.style.display = "block");
+    isIntroNeeded();
 }
 
 init();

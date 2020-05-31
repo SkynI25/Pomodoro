@@ -1,17 +1,17 @@
 
 import menuIcon from '../img/menu.svg';
 const USER_NAME = 'username';
+const TIME = 'timeSetting';
 const infoSect = document.querySelector('.infoSect');
 const topSect = document.querySelector('.topSect');
 const startBtn = document.querySelector('.buttonLocation button');
 const menu_img = document.querySelector('.menu-img');
 
 function startBtnHandler() {
-    if(localStorage.getItem('timeSetting') !== null) {
-        window.location.href='pomodoro.html';
-    } else {
-        alert("시작하시기 전에 세팅 화면에서 시간을 설정해주세요.")
+    if(localStorage.getItem(TIME) === null) {
+        localStorage.setItem(TIME, 30);
     }
+    window.location.href='pomodoro.html';
 }
 
 function imgHandler() {
