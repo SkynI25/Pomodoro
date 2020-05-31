@@ -68,6 +68,13 @@ p {
     left: 225px;
 }
 
+.conc-zone p {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #fff;
+}
+
 .conc-zone button {
     margin-top: 35px;
     color: #fff;
