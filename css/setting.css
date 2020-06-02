@@ -268,6 +268,7 @@ input.mode-type:active+.design::after {
     margin: 0;
     color: #666666;
     font-size: 14px;
+    line-height: calc(50% + 31px);
 }
 
 .copyright i {
@@ -293,7 +294,8 @@ input.mode-type:active+.design::after {
 }
 @media(max-width: 480px) {
     .username {
-        width: 100px;
+        width: 140px;
+        font-size: 12px;
     }
     .mode-text {
         font-size: 13px;
