@@ -1,4 +1,5 @@
 ﻿import '../css/pomodoro.css';
+import '../css/common.css';
 
 let seconds = 0;
 let timerHour = 0;
