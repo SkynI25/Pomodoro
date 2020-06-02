@@ -1,6 +1,5 @@
 ﻿import '../css/setting.css';
 import "../css/common.css";
-import "./username.js";
 
 const TYPE = "mode";
 const TIME = "timeSetting";
