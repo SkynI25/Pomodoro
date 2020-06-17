@@ -16,7 +16,8 @@ const introCloseBtn = intro.querySelector('.intro-inner .closeBtn button');
 const questionMark = document.querySelector('.copyright i');
 
 function valiCheck(data) {
-    return (!/\D/.test(data) || /\d\.[1-9]{1}/.test(data)) && !/\d\.[1-9]{2,}/.test(data) && Number(data) > 0;
+    let num = Number(data);
+    return (!/\D/.test(num) || /\d\.[1-9]{1}/.test(num)) && !/\d\.[1-9]{2,}/.test(num) && num > 0;
 }
 
 function pointWrongInput(data) {
@@ -42,7 +43,8 @@ function setData2LS(listVal) {
 
 function setChildValue() {
     const listVal = [];
-    const val1 = Number(pomoTime.value).toFixed(1);
+    const num = Number(pomoTime.value);
+    const val1 =  /\d\.[1-9]{1,}/.test(num) ? num.toFixed(1) : num;
     const user = username.value;
 
     listVal.push(val1);
